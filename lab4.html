@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Command Pattern Example</title>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <p>
+      <label for="num1-input">Number 1:</label>
+      <input type="number" id="num1-input">
+    </p>
+    <p>
+      <label for="num2-input">Number 2:</label>
+      <input type="number" id="num2-input">
+    </p>
+    <button id="add-btn">Add</button>
+    <button id="subtract-btn">Subtract</button>
+    <button id="multiply-btn">Multiply</button>
+    <button id="divide-btn">Divide</button>
+    <h2>Result: <span id="result"></span></h2>
+
+    <script>
+      // Define the commands
+      const addCommand = {
+        execute: function(num1, num2) {
+          return num1 + num2;
+        }
+      };
+
+      const subtractCommand = {
+        execute: function(num1, num2) {
+          return num1 - num2;
+        }
+      };
+
+      const multiplyCommand = {
+        execute: function(num1, num2) {
+          return num1 * num2;
+        }
+      };
+
+      const divideCommand = {
+        execute: function(num1, num2) {
+          return num1 / num2;
+        }
+      };
+
+      // Handle button clicks
+      document.getElementById('add-btn').addEventListener('click', () => {
+        const num1 = parseFloat(document.getElementById('num1-input').value);
+        const num2 = parseFloat(document.getElementById('num2-input').value);
+        const result = addCommand.execute(num1, num2);
+        document.getElementById('result').innerText = result;
+      });
+
+      document.getElementById('subtract-btn').addEventListener('click', () => {
+        const num1 = parseFloat(document.getElementById('num1-input').value);
+        const num2 = parseFloat(document.getElementById('num2-input').value);
+        const result = subtractCommand.execute(num1, num2);
+        document.getElementById('result').innerText = result;
+      });
+
+      document.getElementById('multiply-btn').addEventListener('click', () => {
+        const num1 = parseFloat(document.getElementById('num1-input').value);
+        const num2 = parseFloat(document.getElementById('num2-input').value);
+        const result = multiplyCommand.execute(num1, num2);
+        document.getElementById('result').innerText = result;
+      });
+
+      document.getElementById('divide-btn').addEventListener('click', () => {
+        const num1 = parseFloat(document.getElementById('num1-input').value);
+        const num2 = parseFloat(document.getElementById('num2-input').value);
+        const result = divideCommand.execute(num1, num2);
+        document.getElementById('result').innerText = result;
+      });
+    </script>
+  </body>
+</html>
+
